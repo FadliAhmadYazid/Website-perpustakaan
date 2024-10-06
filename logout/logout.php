@@ -1,0 +1,11 @@
+<?php
+session_unset();
+session_destroy();
+unset($_COOKIE['username']);
+unset($_COOKIE['email']);
+unset($_COOKIE['otortias']);
+unset($_COOKIE['alamat']);
+unset($_COOKIE['telepon']);
+unset($_COOKIE['nama_lengkap']);
+header('location:../index.php');
+?>

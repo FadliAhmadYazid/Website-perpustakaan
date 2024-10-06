@@ -1,0 +1,248 @@
+p {
+    font-size: large;
+}
+
+.navbar {
+    width: 98%;
+    margin-top: 20px;
+    margin-left: 14px;
+    background-color: white;
+    height: 80px;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.login-button {
+    background-color: #0E46A3;
+    color: white;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    border: none;
+}
+
+.login-button:hover {
+    background-color: #1E0342;
+    transform: scale(1.02);
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: grey;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: black;
+}
+
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #0E46A3;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.first-section {
+    background: url(../assets/bg2.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.first-section::before{
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.first-section .container {
+    height: 100vh;
+    z-index: 1;
+    position: relative;
+}
+
+.container-fixed-width {
+    width: 98%;
+    margin-top: 40px;
+}
+
+.input-box {
+    width: 100%;
+    margin-top: 60px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+}
+
+.portrait-img {
+    height: 450px; /* Adjust as needed */
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Add custom styles to make the card smaller */
+.card {
+    max-width: 350px; /* Set maximum width for the card */
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-img-top {
+    height: 290px; /* Set height for the card image */
+    object-fit: cover; /* Ensure the image covers the entire space allocated */
+}
+
+.card-body {
+    padding: 10px; /* Add padding to the card body */
+}
+
+.card-title {
+    font-size: 16px; /* Decrease font size for the card title */
+    margin-bottom: 8px; /* Add margin bottom to the card title */
+}
+
+.card-text {
+    font-size: 14px; /* Decrease font size for the card text */
+    margin-bottom: 4px; /* Add margin bottom to the card text */
+}
+
+.pagination {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.pagination .page-item .page-link {
+    color: #0E46A3;
+    border: 1px solid #0E46A3;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #0E46A3;
+    color: white;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0E46A3;
+    border-color: #0E46A3;
+}
+
+.bookmark-btn {
+    border: 1px solid black; /* Mengatur garis tepi dengan warna hitam */
+    background-color: transparent; /* Menghapus latar belakang */
+    padding: 15px; /* Sesuaikan ukuran padding sesuai kebutuhan */
+    width: 30px; /* Mengatur lebar tombol */
+    height: 30px; /* Mengatur tinggi tombol */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* Menghilangkan sudut border */
+}
+
+.bookmark-btn:hover {
+    border: 1px solid black; /* Mengatur garis tepi dengan warna hitam */
+    background: url(../assets/bookmark.svg) no-repeat center;
+    transform: scale(1.1);
+}
+
+.bookmark-btn img {
+    width: 14px; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+    height: auto; /* Menjaga aspek rasio gambar */
+}
+
+.eye-btn {
+    border: 1px solid black; /* Mengatur garis tepi dengan warna hitam */
+    background-color: #0E46A3; /* Menghapus latar belakang */
+    padding: 15px; /* Sesuaikan ukuran padding sesuai kebutuhan */
+    width: 30px; /* Mengatur lebar tombol */
+    height: 30px; /* Mengatur tinggi tombol */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* Menghilangkan sudut border */
+    transition: all 0.3s ease; /* Animasi transisi */
+}
+
+.eye-btn:hover {
+    border: 1px solid black; /* Mengatur garis tepi dengan warna hitam */
+    background-color: #1E0342;
+    transform: scale(1.1);
+}
+
+.eye-btn img{
+    width: 15px; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+    height: auto; /* Menjaga aspek rasio gambar */
+}
+
+.form-control:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.search-btn{
+    background-color: #0E46A3;
+    color: white;
+    transition: 0.3s;
+}
+
+.search-btn:hover{
+    transform: scale(1.02);
+    background-color: #1E0342;
+    color: white;
+}
+.profile-picture {
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%; 
+    border: 1px solid grey;
+    transition: 0.3s;
+}
+
+.profile-picture:hover {
+    transform: scale(1.1);
+}
+
+span.full-name {
+    margin-left: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: large;
+}

@@ -1,0 +1,143 @@
+p {
+    font-size: large;
+}
+
+.navbar {
+    width: 98%;
+    margin-top: 20px; /* Center align */
+    margin-left: 14px;
+    background-color: white;
+    height: 80px;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.login-button {
+    background-color:#0E46A3;
+    color: white;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    border: none;
+}
+
+.login-button:hover {
+    background-color: #1E0342;
+    transform: scale(1.02);
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: grey;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: black;
+}
+
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #0E46A3;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+.first-section {
+    background: url(../assets/bg2.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.first-section::before {
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.first-section .container {
+    height: 100vh;
+    z-index: 1;
+    position: relative;
+}
+.container-fixed-width {
+    width: 98%; /* Sesuaikan dengan lebar yang diinginkan */
+    margin-top: 40px; /* Center align */
+}
+.input-box {
+    width: 100%; /* Sesuaikan dengan lebar yang diinginkan */
+    margin-top: 40px; /* Center align */
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+}
+.dropdown{
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* Membuat tombol menjadi persegi */
+    width: 120px; /* Sesuaikan ukuran tombol */
+    height: auto;
+    padding: 7px; /* Hapus padding */
+    transition: 0.3s; 
+    font-size: 16px;
+}
+.dropdown:hover{
+    transform: scale(1.01); /* Efek memperbesar tombol saat hover */
+    background-color: darken(#ffc107, 10%); /* Menggelapkan warna tombol warning saat hover */
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%; 
+    border: 1px solid grey;
+    transition: 0.3s;
+}
+
+.profile-picture:hover {
+    transform: scale(1.1);
+}
+
+span.full-name {
+    margin-left: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: large;
+}
