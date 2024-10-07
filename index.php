@@ -73,6 +73,15 @@
               <img src="assets/whatsapp.svg" alt="WhatsApp" width="40" height="40">
             </a>
           </div>
+          <div class="col-md-4">
+            <p></p>
+            <p>Fadli Ahmad Yazid</p>
+            <p>yazid22@mhs.usk.ac.id</p>
+            <hr>
+            <a href="https://wa.me/6285163622468">
+              <img src="assets/whatsapp.svg" alt="WhatsApp" width="40" height="40">
+            </a>
+          </div>
         </div>
       </div>
     </section>
