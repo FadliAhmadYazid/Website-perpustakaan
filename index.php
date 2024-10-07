@@ -30,6 +30,9 @@
               <li class="nav-item">
                 <a class="nav-link mx-lg-2" href="#aboutsection">Tentang</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#contactsection">Kontak</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -55,6 +58,22 @@
         <p>Kami dengan bangga mempersembahkan aplikasi perpustakaan yang dibuat khusus untuk memenuhi kebutuhan dan kemauan para pengguna. Kami percaya bahwa akses yang mudah dan nyaman terhadap bahan bacaan adalah hak bagi semua orang, dan kami berkomitmen untuk memberikan layanan terbaik kepada masyarakat kami.</p>
         <p>Aplikasi Perpustakaan dirancang dengan memperhatikan kebutuhan lokal, serta mempertimbangkan kemajuan teknologi. Dengan fitur-fitur yang mudah digunakan dan intuitif, kami ingin memastikan bahwa setiap pengguna dapat menikmati pengalaman membaca yang menyenangkan dan bermanfaat.</p>
         <p>Aplikasi Perpustakaan adalah wujud dari komitmen kami untuk menyediakan layanan perpustakaan yang inklusif, inovatif, dan berorientasi pada kebutuhan pengguna. Kami berharap aplikasi ini dapat menjadi sarana yang bermanfaat bagi seluruh masyarakat dalam mengeksplorasi dunia pengetahuan melalui bacaan. Terima kasih atas dukungan dan partisipasi Anda!</p>
+      </div>
+    </section>
+    <section class="third-section" id="contactsection">
+      <div class="container d-flex text-center align-items-center justify-content-center fs-1 text-black flex-column">
+        <h2>Kontak</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <p></p>
+            <p>Azri Harniza</p>
+            <p>azri.22@mhs.usk.ac.id</p>
+            <hr>
+            <a href="https://wa.me/6282276780995">
+              <img src="assets/whatsapp.svg" alt="WhatsApp" width="40" height="40">
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </body>
