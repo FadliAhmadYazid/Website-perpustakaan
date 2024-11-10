@@ -1,33 +1,51 @@
-name: Deploy PHP to Cloud Run
+name: PHP Composer
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
-    - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@v2
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
       with:
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
-        service_account_key: ${{ secrets.GCP_SA_KEY }}
-        export_default_credentials: true
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
 
-    - name: Build Docker image and push to Google Container Registry (GCR)
-      run: |
-        gcloud builds submit --tag gcr.io/${{ secrets.GCP_PROJECT_ID }}/website-perpustakaan:latest
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
 
-    - name: Deploy to Cloud Run
-      run: |
-        gcloud run deploy website-perpustakaan \
-          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/website-perpustakaan:latest \
-          --region asia-southeast2 \
-          --platform managed \
-          --allow-unauthenticated \
-          --add-cloudsql-instances ${{ secrets.CLOUD_SQL_INSTANCE_CONNECTION_NAME }}
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN1 }}
+
+    - name: Build and push
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        tags: yazid22/website-perpustakaan1:latest
+
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    # - name: Run test suite
+    #   run: composer run-script test
