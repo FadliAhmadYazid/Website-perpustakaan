@@ -1,7 +1,7 @@
 <?php
 $username = 'root';
-$serverName = '/cloudsql/website-perpustakaan-440710:asia-southeast2:website-perpustakaan-db';
-$password = '';
+$serverName = 'host.docker.internal'; // Ganti localhost menjadi host.docker.internal
+$password = '';  // Jika root MySQL Anda tidak punya password, biarkan kosong
 $database = 'website_perpustakaan';
 
 $connect = mysqli_connect($serverName, $username, $password, $database);
