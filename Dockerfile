@@ -13,8 +13,8 @@ COPY . /var/www/html
 # Mengatur hak akses folder jika diperlukan
 RUN chown -R www-data:www-data /var/www/html
 
-# Membuka port 80 untuk akses HTTP
-EXPOSE 80
+# Mengatur variabel lingkungan PORT yang akan digunakan oleh Cloud Run
+ENV PORT 8080
 
 # Menjalankan Apache server di dalam container
 CMD ["apache2-foreground"]
