@@ -1,4 +1,4 @@
-name: Deploy to Cloud Run
+name: PHP Composer
 
 on:
   push:
@@ -10,7 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  build-and-deploy:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +19,7 @@ jobs:
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
- 
+
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v3
@@ -31,27 +32,14 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: Configure Google Cloud authentication
-      uses: google-github-actions/auth@v1
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
       with:
-        credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN1 }}
 
-    - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@v1
-      with:
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
-
-    - name: Build and push Docker image
+    - name: Build and push
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: gcr.io/${{ secrets.GCP_PROJECT_ID }}/website-perpustakaan1:latest
-
-    - name: Deploy to Cloud Run
-      run: |
-        gcloud run deploy website-perpustakaan1 \
-          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/website-perpustakaan1:latest \
-          --platform managed \
-          --region us-central1 \
-          --allow-unauthenticated \
-          --port 8080
+        tags: yazid22/website-perpustakaan1:latest
