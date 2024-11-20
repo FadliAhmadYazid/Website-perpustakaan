@@ -1,20 +1,14 @@
-# Menggunakan image PHP resmi dengan Apache
-FROM php:8.2-apache
+FROM golang:1.17-alpine
 
-# Menginstal ekstensi mysqli
-RUN docker-php-ext-install mysqli
+WORKDIR /app
 
-# Menetapkan direktori kerja di dalam container
-WORKDIR /var/www/html
+COPY go.mod ./
+COPY *.go ./
+COPY static ./static
 
-# Menyalin semua file dari project lokal ke dalam container
-COPY . /var/www/html
+RUN go build -o /belajar-cicd-pemula
 
-# Mengatur hak akses folder jika diperlukan
-RUN chown -R www-data:www-data /var/www/html
-
-# Mengatur variabel lingkungan PORT yang akan digunakan oleh Cloud Run
+# EXPOSE 3000
+RUN CGO_ENABLED=0 GOOS=linux go build -o /belajar-cicd-pemula
 ENV PORT 8080
-
-# Menjalankan Apache server di dalam container
-CMD ["apache2-foreground"]
+CMD ["/belajar-cicd-pemula"]
